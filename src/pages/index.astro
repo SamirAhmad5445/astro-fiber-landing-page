@@ -1,9 +1,73 @@
 ---
+// packages & libraries
+import Icon from "astro-icon";
+// layouts & components
 import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Button from "../components/Button.astro";
+// data
+import { rating } from "../data";
 ---
 
-<Layout title="Fiber">
-  <h1 class="text-primary-400 text-7xl text-center py-24 font-bold">
-    Hello World
-  </h1>
+<Layout title="Fiber • Create your portfolio in minutes">
+  <header class="bg-neutral-200 pb-[10.5rem] mb-20">
+    <div class="container mx-auto py-10 px-18">
+      <Navbar />
+    </div>
+    <section
+      id="heroSection"
+      aria-labelledby="pageTitle"
+      class="container mx-auto px-18 flex justify-between items-center"
+    >
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="flex gap-2">
+            {
+              "⭐"
+                .repeat(Math.round(rating.rate))
+                .split("")
+                .map((s) => <Icon name="star" size={18} />)
+            }
+          </span>
+          <span>Rated {rating.rate}/5 ({rating.reviews} reviews)</span>
+        </div>
+        <h1
+          id="pageTitle"
+          class="text-[3.5rem] leading-[4.5rem] text-neutral-900 font-bold mb-2 md:w-[16ch]"
+        >
+          Create your portfolio in minutes.
+        </h1>
+        <p class="mb-6 max-w-[58ch]">
+          With Fiber, you can setup your own personal portfolio in minutes with
+          dozens of premade, beautiful templates.
+        </p>
+        <div class="mb-9">
+          <Button content="Start Free Trial" />
+          <a
+            href="/"
+            class="text-primary-400 hover:text-primary-500 font-bold ml-10 underline"
+          >
+            View Examples
+          </a>
+        </div>
+        <ul class="flex items-center gap-6">
+          <li class="flex items-center gap-4">
+            <Icon name="checkmark" size={24} />
+             Credit Card Required
+          </li>
+          <li class="flex items-center gap-4">
+            <Icon name="checkmark" size={24} />
+             10 Free Templates
+          </li>
+        </ul>
+      </div>
+      <div class="max-w-xl">
+        <img
+          src="/assets/hero-illustration.png"
+          alt="Developer Build Site with Augmented Reality"
+          class="min-w-[529.75px] object-cover"
+        />
+      </div>
+    </section>
+  </header>
 </Layout>

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .transition-effect {
+    @apply transition-all duration-300 hover:-translate-y-2;
+  }
+}

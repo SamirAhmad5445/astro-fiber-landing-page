@@ -6,6 +6,7 @@ export default {
       colors: {
         primary: {
           400: "#4d13d1",
+          500: "#3f10ac",
         },
         neutral: {
           100: "#ffffff",
@@ -19,6 +20,9 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+      },
+      padding: {
+        18: "4.375rem",
       },
     },
   },
