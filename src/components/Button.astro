@@ -1,19 +1,24 @@
 ---
 export interface Props {
   content: string;
+  type?: "primary" | "neutral";
 }
 
-const { content } = Astro.props;
+const { content, type = "primary" } = Astro.props;
 ---
 
 <button
-  class="text-neutral-100
+  class={`text-neutral-100
+  border
   font-bold
-   bg-primary-400
-   hover:bg-primary-500
-   px-8 py-[18px]
-   rounded-md
-   transition-effect"
+  ${
+    type === "primary"
+      ? "bg-primary-400 hover:bg-primary-500 border-primary-400"
+      : "text-primary-500 bg-neutral-100 hover:bg-neutral-300 border-neutral-400"
+  }
+  px-8 py-4
+  rounded-md
+  transition-effect`}
 >
   {content}
 </button>
