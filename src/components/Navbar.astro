@@ -1,4 +1,5 @@
 ---
+import Icon from "astro-icon";
 import Button from "../components/Button.astro";
 const navLinks = [
   { href: "#community", name: "Community" },
@@ -7,26 +8,55 @@ const navLinks = [
 ];
 ---
 
-<nav id="primaryNavigation" class="flex items-center">
-  <a href="/" class="basis-1/3 font-bold text-xl text-neutral-900"> Fiber</a>
-  <div class="basis-2/3 flex items-center justify-between">
-    <ul class="flex gap-8 ml-6">
-      {
-        navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class="inline-block hover:text-primary-400 transition-effect"
-            >
-              {link.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-    <div class="flex gap-11">
-      <button class="text-neutral-900 font-bold">Sign In</button>
-      <Button content="Sign Up" />
+<div class="container mx-auto px-12 lg:px-18 py-10">
+  <nav id="primaryNavigation" class="group flex items-center">
+    <div class="basis-1/3 font-bold text-xl text-neutral-900">
+      <a href="/"> Fiber</a>
     </div>
-  </div>
-</nav>
+    <div
+      class="basis-2/3 flex flex-col lg:flex-row items-center justify-center lg:justify-between absolute lg:static inset-0 bg-neutral-100 lg:bg-transparent text-center lg:text-start text-2xl lg:text-lg opacity-0 group-open:opacity-100 lg:opacity-100 pointer-events-none group-open:pointer-events-auto lg:pointer-events-auto transition-all lg:transition-none duration-500 lg:duration-0"
+    >
+      <ul class="flex flex-col lg:flex-row gap-6 mb-4 lg:mb-0 lg:ml-6">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="inline-block hover:text-primary-400 transition-effect"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="flex flex-col lg:flex-row gap-6 lg:gap-11">
+        <button class="text-neutral-900 font-bold transition-effect">
+          Sign In
+        </button>
+        <Button content="Sign Up" isLink={true} href="/" />
+      </div>
+    </div>
+    <div
+      class="text-neutral-700 flex-1 flex justify-end isolate z-50 lg:hidden"
+    >
+      <button id="navMenuOpen" class="block group-open:hidden">
+        <Icon name="menu" size={32} />
+        <span class="sr-onl">open menu</span>
+      </button>
+      <button id="navMenuClose" class="hidden group-open:block">
+        <Icon name="close" size={32} class="scale-150" />
+        <span class="sr-onl">close menu</span>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<script lang="js">
+document.getElementById("navMenuOpen").addEventListener("click", () => {
+  document.getElementById("primaryNavigation").setAttribute("open", "");
+});
+document.getElementById("navMenuClose").addEventListener("click", () => {
+  document.getElementById("primaryNavigation").removeAttribute("open");
+});
+</script>

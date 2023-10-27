@@ -1,0 +1,46 @@
+---
+const links = [
+  {
+    name: "Sitemap",
+    links: ["Homepage", "Pricing", "Testimonials", "Features"],
+  },
+  { name: "Resources", links: ["Support", "Contact", "FAQ"] },
+  { name: "Company", links: ["About", "Customers", "Blog"] },
+  {
+    name: "Portfolios",
+    links: ["Sarah Andrews", "Mathew Higgins", "Janice Dave"],
+  },
+];
+---
+
+<footer class="bg-neutral-200 text-xl">
+  <div class="container mx-auto p-18 flex flex-col lg:flex-row gap-8">
+    <div>
+      <a href="/" class="block text-neutral-900 font-bold mb-6">Fibre</a>
+      <p class="max-w-[38ch] mb-14">
+        With Fiber, you can setup your own personal portfolio in minutes with
+        dozens of premade, beautiful templates.
+      </p>
+      <p class="font-bold">
+        Coded with 🖤 by
+        <a href="https://github.com/SamirAhmad5445" target="_blank">
+          Samir Ahmad
+        </a>
+      </p>
+    </div>
+    {
+      links.map((item) => (
+        <div class="flex flex-col gap-6">
+          <h2 class="text-neutral-900 font-bold">{item.name}</h2>
+          <ul class="flex flex-col gap-5">
+            {item.links.map((link) => (
+              <li>
+                <a href="#">{link}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</footer>

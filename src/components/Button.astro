@@ -2,12 +2,17 @@
 export interface Props {
   content: string;
   type?: "primary" | "neutral";
+  isLink?: boolean;
+  href?: string;
 }
 
-const { content, type = "primary" } = Astro.props;
+const { content, type = "primary", isLink = false, href} = Astro.props;
+
+const Tag = isLink ? "a" : "button";
 ---
 
-<button
+<Tag
+  href={href}
   class={`text-neutral-100
   border
   font-bold
@@ -21,4 +26,4 @@ const { content, type = "primary" } = Astro.props;
   transition-effect`}
 >
   {content}
-</button>
+</Tag>

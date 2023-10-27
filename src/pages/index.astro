@@ -5,22 +5,21 @@ import Icon from "astro-icon";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
 // data import
 import { rating, features, testimonials } from "../data";
 ---
 
 <Layout title="Fiber • Create your portfolio in minutes">
   <header class="bg-neutral-200 pb-[10.5rem] mb-20">
-    <div class="container mx-auto px-18 py-10">
-      <Navbar />
-    </div>
+    <Navbar />
     <section
       id="heroSection"
       aria-labelledby="pageTitle"
-      class="container mx-auto px-18 flex justify-between items-center"
+      class="container mx-auto px-18 flex flex-col-reverse xl:flex-row justify-between items-center gap-y-16"
     >
       <div>
-        <div class="flex items-center gap-2 mb-4">
+        <div class="hidden lg:flex items-center gap-2 mb-4">
           <span class="flex gap-2">
             {
               "⭐"
@@ -41,16 +40,16 @@ import { rating, features, testimonials } from "../data";
           With Fiber, you can setup your own personal portfolio in minutes with
           dozens of premade, beautiful templates.
         </p>
-        <div class="mb-9">
-          <Button content="Start Free Trial" />
+        <div class="grid gap-y-4 text-center md:block md:text-start mb-9">
+          <Button content="Start Free Trial" isLink={true} href="/" />
           <a
-            href="/"
+            href="#testimonial"
             class="text-primary-400 hover:text-primary-500 font-bold ml-10 underline"
           >
             View Examples
           </a>
         </div>
-        <ul class="flex items-center gap-6">
+        <ul class="flex flex-col md:flex-row md:items-center gap-6">
           <li class="flex items-center gap-4">
             <Icon name="checkmark" size={24} />
              Credit Card Required
@@ -61,7 +60,7 @@ import { rating, features, testimonials } from "../data";
           </li>
         </ul>
       </div>
-      <div class="max-w-xl flex justify-center items-center">
+      <div class="min-w-xl flex justify-center items-center">
         <img
           src="/assets/hero-Illustration.png"
           alt="Developer Build Site with Augmented Reality"
@@ -75,7 +74,7 @@ import { rating, features, testimonials } from "../data";
       <p class="text-4xl text-neutral-900 font-bold max-w-[28ch] mb-12">
         A good portfolio means good employability.
       </p>
-      <div class="flex gap-4 mb-20">
+      <div class="flex flex-col lg:flex-row gap-x-4 gap-y-8 mb-20">
         {
           features.map((feature) => (
             <div class="grid gap-4">
@@ -88,7 +87,7 @@ import { rating, features, testimonials } from "../data";
       </div>
       <!-- Call To Action -->
       <div
-        class="bg-primary-400 rounded-xl text-neutral-100 grid grid-cols-2 place-items-center mb-20"
+        class="bg-primary-400 rounded-xl text-neutral-100 grid lg:grid-cols-2 place-items-center mb-20"
       >
         <div class="grid gap-4 p-12">
           <h2 class="text-4xl font-bold">Diversify your portfolio.</h2>
@@ -100,13 +99,13 @@ import { rating, features, testimonials } from "../data";
             <Button content="Start Free Trial" type="neutral" />
           </div>
         </div>
-        <div class="pt-12 pr-12">
+        <div class="px-12 lg:pt-12 lg:pl-0">
           <img src="/assets/page-snapshot.png" alt="" />
         </div>
       </div>
     </section>
     <section id="testimonial" class="container mx-auto px-18">
-      <div class="flex gap-6 mb-20">
+      <div class="flex flex-col lg:flex-row gap-x-6 gap-y-12 mb-20">
         {
           testimonials.map((item) => (
             <div class="grid gap-6 p-6 border border-neutral-400 rounded-xl text-base">
@@ -130,4 +129,5 @@ import { rating, features, testimonials } from "../data";
       </div>
     </section>
   </main>
+  <Footer />
 </Layout>
