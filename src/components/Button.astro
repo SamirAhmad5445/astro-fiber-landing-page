@@ -6,14 +6,15 @@ export interface Props {
   href?: string;
 }
 
-const { content, type = "primary", isLink = false, href} = Astro.props;
+const { content, type = "primary", isLink = false, href } = Astro.props;
 
 const Tag = isLink ? "a" : "button";
 ---
 
 <Tag
   href={href}
-  class={`text-neutral-100
+  class={`text-center
+  text-neutral-100
   border
   font-bold
   ${

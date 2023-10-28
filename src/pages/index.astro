@@ -41,7 +41,7 @@ import { rating, features, testimonials } from "../data";
           dozens of premade, beautiful templates.
         </p>
         <div class="grid gap-y-4 text-center md:block md:text-start mb-9">
-          <Button content="Start Free Trial" isLink={true} href="/" />
+          <Button content="Start Free Trial" isLink={true} href="/login" />
           <a
             href="#testimonial"
             class="text-primary-400 hover:text-primary-500 font-bold ml-10 underline"
@@ -96,7 +96,12 @@ import { rating, features, testimonials } from "../data";
             for your projects. Simply follow our step-by-step guide.
           </p>
           <div class="grid md:block">
-            <Button content="Start Free Trial" type="neutral" />
+            <Button
+              content="Start Free Trial"
+              type="neutral"
+              isLink={true}
+              href="/login"
+            />
           </div>
         </div>
         <div class="px-12 lg:pt-12 lg:pl-0">

@@ -1,0 +1,115 @@
+---
+import Icon from "astro-icon";
+import Button from "../../components/Button.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Create your Fiber account">
+  <main class="grid lg:grid-cols-2 h-full">
+    <div class="px-8 md:px-28 py-10 grid gap-8">
+      <div class="font-bold text-3xl text-neutral-900">
+        <a href="/"> Fiber</a>
+      </div>
+      <h1 class="text-4xl text-neutral-900 font-bold">
+        Create your Fiber account
+      </h1>
+      <form class="grid gap-8">
+        <div class="grid grid-cols-1 gap-2">
+          <label for="name" class="text-xl text-neutral-900 font-bold">
+            Your Name
+          </label>
+          <input
+            class="border border-neutral-400 rounded-xl py-5 pl-8 focus-visible:bg-neutral-300"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="John Doe"
+          />
+        </div>
+        <div class="grid grid-cols-1 gap-2">
+          <label for="email" class="text-xl text-neutral-900 font-bold">
+            Your E-mail
+          </label>
+          <input
+            class="border border-neutral-400 rounded-xl py-5 pl-8 focus-visible:bg-neutral-300"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="john@exmple.com"
+          />
+        </div>
+        <div class="grid grid-cols-1 gap-2">
+          <label for="password" class="text-xl text-neutral-900 font-bold">
+            Password
+          </label>
+          <div class="relative grid text-neutral-500">
+            <input
+              class="text-neutral-600 border border-neutral-400 rounded-xl py-5 pl-8 focus-visible:bg-neutral-300"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="At least 8 characters"
+            />
+            <button
+              type="button"
+              id="passwordToggle"
+              class="absolute top-5 right-5"
+            >
+              <Icon name="hide-password" size={32} />
+              <span class="sr-only">Hide / Show Password</span>
+            </button>
+          </div>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            name="termsAndConditions"
+            id="termsAndConditions"
+            class="accent-primary-400"
+          />
+          <label for="termsAndConditions">
+            By creating an account on Fiber, you agree to the
+            <a
+              href="#"
+              class="text-primary-400 hover:text-primary-500 font-bold underline"
+            >
+              Terms & Conditions.
+            </a>
+          </label>
+        </div>
+        <Button content="Create Fiber Account" />
+      </form>
+      <p class="text-xl text-center">
+        Already have an account?
+        <a href="/" class="text-primary-400">Sign in</a>
+      </p>
+    </div>
+    <div
+      class="relative text-center text-neutral-100 font-bold hidden lg:block"
+    >
+      <div
+        class="sticky top-0 right-0 h-screen p-20 bg-primary-400 grid place-content-center gap-4"
+      >
+        <img src="/assets/sign-up-image.png" alt="Sign up image" />
+        <h2 class="text-4xl">Unparalleled Templates</h2>
+        <p class="max-w-lg mx-auto">
+          Crafted by a team of professional designers, our templates are
+          eunparalleled in the market.
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const passwordToggle = document.getElementById("passwordToggle");
+  passwordToggle.addEventListener("click", () => {
+    const passInput = document.getElementById("password");
+    if (passInput.getAttribute("type") === "password") {
+      passInput.setAttribute("type", "text");
+    } else {
+      passInput.setAttribute("type", "password");
+    }
+    passwordToggle.classList.toggle("text-primary-400");
+  });
+</script>
